@@ -40,6 +40,7 @@ function App() {
         {events.map((event,i)=>{
           const imgUrl= event.featuredImage.childImageSharp.resize.src;
           return(
+            //make an Event component and use <Event/> in stead of this code
             <div key={i}>
               <img
                 width="50%" 
@@ -48,6 +49,7 @@ function App() {
               />
               <h2>{event.name}</h2>
             </div>
+            //here ends the component
           )
         })}
       </div>
