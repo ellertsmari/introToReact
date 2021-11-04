@@ -13,12 +13,24 @@ function App() {
   // only call fetch inside functions in the component
 
   useEffect(()=>{
-    fetch("http://localhost:3001")
-    .then(r=>r.json())
-    .then(data=>{
-      console.log(data.data.nextEvents.nodes);
-      setEvents(data.data.nextEvents.nodes);
-    })
+    const getData = async ()=>{
+      const r = await fetch("https://api-rent.myigloo.is/api/2019-10/listings/");
+      const json = await r.json();
+      console.log("this is the json", json);
+    }
+    
+    getData();
+    console.log("this is after the getData");
+    // const test = fetch("https://api-rent.myigloo.is/api/2019-10/listings/")
+    // .then(r=>{
+    //   console.log("this is theparameter in then argument",r)
+    //   return r.json();
+    // })
+    // .then(json =>{
+    //   console.log("this is the json", json);
+    // })
+    // console.log("this is test:",test);
+    
   },[])
   const incrementCounter = ()=>{
     setCounter(counter+1);
